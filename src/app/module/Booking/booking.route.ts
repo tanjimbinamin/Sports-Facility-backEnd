@@ -20,6 +20,6 @@ router.delete('/:id', auth('user'), BookingController.deleteBookingByUser);
 
 router.get('/', BookingController.getAvailableTimeSlots);
 
-router.get('/', BookingController.getAvailableTimeSlots);
+
 
 export const BookingRouter = router;

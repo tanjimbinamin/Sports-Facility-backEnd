@@ -29,8 +29,8 @@ const createUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
             email: result.email,
             role: result.role,
             phone: result.phone,
-            address: result.address,
-        },
+            address: result.address
+        }
     });
 }));
 const loginUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -41,7 +41,7 @@ const loginUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void
         statusCode: 200,
         message: 'User logged in successfully',
         token: result.accessToken,
-        data: result.user,
+        data: result.user
     });
 }));
 exports.AuthController = {

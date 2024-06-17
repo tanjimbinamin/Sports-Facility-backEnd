@@ -37,7 +37,7 @@ const createFacility = (0, catchAsync_1.default)((req, res, next) => __awaiter(v
         data: result,
     });
 }));
-const updateFacility = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+const updateFacility = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const updatedData = req.body;
     const result = yield facility_service_1.FacilityService.updateFacilityIntoDB(id, updatedData);
@@ -48,7 +48,7 @@ const updateFacility = (0, catchAsync_1.default)((req, res, next) => __awaiter(v
         data: result,
     });
 }));
-const deleteFacility = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+const deleteFacility = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const result = yield facility_service_1.FacilityService.deleteFacilityFromDB(id);
     return (0, sendResponse_1.default)(res, {

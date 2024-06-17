@@ -1,9 +1,9 @@
 import { model, Schema } from 'mongoose';
-import { T_Facility, T_Facility_Find_Methods } from './facility.interface';
+import { TFacility, T_Facility_Find_Methods } from './facility.interface';
 import AppError from '../../errors/AppError';
 import httpStatus from 'http-status';
 
-export const facilitySchema = new Schema<T_Facility, T_Facility_Find_Methods>({
+export const facilitySchema = new Schema<TFacility, T_Facility_Find_Methods>({
   name: {
     type: String,
     required: [true, 'Facility name is required'],
@@ -31,11 +31,11 @@ facilitySchema.statics.isFacitityExist = async (id) => {
   if (isFaciExist) {
     return true;
   } else {
-    false;
+    return false;
   }
 };
 
-export const Facility = model<T_Facility, T_Facility_Find_Methods>(
+export const Facility = model<TFacility, T_Facility_Find_Methods>(
   'Facility',
   facilitySchema,
 );

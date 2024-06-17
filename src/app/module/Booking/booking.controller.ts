@@ -2,11 +2,10 @@ import { RequestHandler } from 'express';
 import catchAsync from '../../utils/catchAsync';
 import { BookingService } from './booking.service';
 import sendResponse from '../../utils/sendResponse';
-
 import httpStatus from 'http-status';
 import { convertDate, getFormattedDate } from './booking.utils';
 
-const createBooking: RequestHandler = catchAsync(async (req, res, next) => {
+const createBooking: RequestHandler = catchAsync(async (req, res) => {
   const { id } = req.user;
   const data = req.body;
   data.user = id;
@@ -19,7 +18,7 @@ const createBooking: RequestHandler = catchAsync(async (req, res, next) => {
   });
 });
 
-const getAllBooking: RequestHandler = catchAsync(async (req, res, next) => {
+const getAllBooking: RequestHandler = catchAsync(async (req, res) => {
   const result = await BookingService.getAllBookingFromDb();
   return sendResponse(res, {
     success: result.length ? true : false,
@@ -31,8 +30,7 @@ const getAllBooking: RequestHandler = catchAsync(async (req, res, next) => {
   });
 });
 
-const getAllBookingByUser: RequestHandler = catchAsync(
-  async (req, res, next) => {
+const getAllBookingByUser: RequestHandler = catchAsync(async (req, res) => {
     const { id } = req.user;
     const result = await BookingService.getAllBookingByUserFromDb(id);
     return sendResponse(res, {
@@ -46,14 +44,11 @@ const getAllBookingByUser: RequestHandler = catchAsync(
   },
 );
 
-const deleteBookingByUser: RequestHandler = catchAsync(
-  async (req, res) => {
+const deleteBookingByUser: RequestHandler = catchAsync(async (req, res) => {
     const { id: userID } = req.user;
     const { id: bookingID } = req.params;
-    const result = await BookingService.deleteBookingByUserFromDb
-    (
-      userID,
-      bookingID,
+    const result = await BookingService.deleteBookingByUserFromDb(
+      userID,bookingID,
     );
     return sendResponse(res, {
       success: true,

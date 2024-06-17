@@ -41,13 +41,13 @@ exports.userSchema.pre('save', function (next) {
         if (isUserExist) {
             throw new AppError_1.default(http_status_1.default.CONFLICT, 'User already exist');
         }
-        this.password = yield bcrypt_1.default.hash(this.password, Number(config_1.default.bcrypt_sault_round));
+        this.password = yield bcrypt_1.default.hash(this.password, Number(config_1.default.bcrypt_salt_round));
         next();
     });
 });
 exports.userSchema.post('save', function (data) {
     return __awaiter(this, void 0, void 0, function* () {
-        data.password = '**********************';
+        data.password = '';
     });
 });
 exports.User = (0, mongoose_1.model)('User', exports.userSchema);

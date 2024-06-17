@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getFormattedDate = exports.findAvailableTimeSlotForBooking = exports.convertDate = exports.hasTimeConflict = exports.getTotalTimeInHour = void 0;
+exports.getFormattedDate = exports.availableTimeSlot = exports.convertDate = exports.hasTimeConflict = exports.getTotalTimeInHour = void 0;
 const http_status_1 = __importDefault(require("http-status"));
 const AppError_1 = __importDefault(require("../../errors/AppError"));
 const getTotalTimeInHour = (startTime, endTime) => {
@@ -51,7 +51,7 @@ const convertDate = (date) => {
     throw new AppError_1.default(http_status_1.default.BAD_REQUEST, 'Invalid date');
 };
 exports.convertDate = convertDate;
-const findAvailableTimeSlotForBooking = (booking) => {
+const availableTimeSlot = (booking) => {
     const startHour = 0;
     const endHour = 24;
     const timeSlots = [];
@@ -69,7 +69,7 @@ const findAvailableTimeSlotForBooking = (booking) => {
     });
     return availableTimeSlots;
 };
-exports.findAvailableTimeSlotForBooking = findAvailableTimeSlotForBooking;
+exports.availableTimeSlot = availableTimeSlot;
 function getFormattedDate() {
     const today = new Date();
     const year = today.getFullYear();

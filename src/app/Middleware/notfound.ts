@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 
-const notFound = (req: Request, res: Response, next: NextFunction) => {
+const notFound = (req: Request, res: Response) => {
   return res.status(404).json({
     success: false,
     statusCode: 404,

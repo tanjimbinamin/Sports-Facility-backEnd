@@ -8,9 +8,9 @@ const path_1 = __importDefault(require("path"));
 dotenv_1.default.config({ path: path_1.default.join(process.cwd(), '.env') });
 exports.default = {
     port: process.env.PORT,
-    databaseUri: process.env.MONGODB_URI,
+    databaseUri: process.env.DATABASE_URL,
     node_env: process.env.NODE_ENV,
-    bcrypt_sault_round: process.env.BCRYPT_SAULT_ROUND,
-    jwt_secrete_key: process.env.JWT_SECRETE_KEY,
-    jwt_secrete_date: process.env.JWT_SECRETE_DATE,
+    bcrypt_salt_round: process.env.BYCRYPT_SALT_ROUNDS,
+    jwt_secret_key: process.env.JWT_ACCESS_SECRET,
+    jwt_expires_key: process.env.JWT_ACCESS_EXPIRES_IN,
 };

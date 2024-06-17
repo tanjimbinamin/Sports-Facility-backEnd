@@ -7,12 +7,12 @@ exports.bookingSchema = new mongoose_1.Schema({
     facility: {
         type: mongoose_1.Schema.Types.ObjectId,
         required: [true, 'Facility ID is required'],
-        ref: 'Facility',
+        ref: 'Facility'
     },
     user: {
         type: mongoose_1.Schema.Types.ObjectId,
         required: [true, 'User ID is required'],
-        ref: 'User',
+        ref: 'User'
     },
     date: { type: String, required: [true, 'Booking date is required'] },
     startTime: { type: String, required: [true, 'Start time is required'] },

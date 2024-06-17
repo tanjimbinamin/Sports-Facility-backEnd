@@ -31,7 +31,7 @@ const updateFacilityIntoDB = (id, data) => __awaiter(void 0, void 0, void 0, fun
     if (data === null || data === void 0 ? void 0 : data.name) {
         const isNameSame = yield facility_model_1.Facility.findOne({ name: data.name });
         if (isNameSame) {
-            throw new AppError_1.default(http_status_1.default.BAD_REQUEST, 'Same Facility Name Already Exist');
+            throw new AppError_1.default(http_status_1.default.BAD_REQUEST, 'This Facility Already Exist');
         }
     }
     const result = yield facility_model_1.Facility.findOneAndUpdate({ _id: id }, data, {

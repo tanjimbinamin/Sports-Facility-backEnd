@@ -1,6 +1,6 @@
 import httpStatus from 'http-status';
 import AppError from '../../errors/AppError';
-import { T_Facility } from './facility.interface';
+import { TFacility } from './facility.interface';
 import { Facility } from './facility.model';
 
 const getAllFacilityFromDB = async () => {
@@ -8,12 +8,12 @@ const getAllFacilityFromDB = async () => {
   return result;
 };
 
-const createFacilityIntoDB = async (data: T_Facility) => {
+const createFacilityIntoDB = async (data: TFacility) => {
   const result = await Facility.create(data);
   return result;
 };
 
-const updateFacilityIntoDB = async (id: string, data: Partial<T_Facility>) => {
+const updateFacilityIntoDB = async (id: string, data: Partial<TFacility>) => {
   if (!(await Facility.isFacitityExist(id))) {
     throw new AppError(
       httpStatus.NOT_FOUND,

@@ -45,7 +45,7 @@ exports.facilitySchema.statics.isFacitityExist = (id) => __awaiter(void 0, void 
         return true;
     }
     else {
-        false;
+        return false;
     }
 });
 exports.Facility = (0, mongoose_1.model)('Facility', exports.facilitySchema);

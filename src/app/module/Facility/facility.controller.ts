@@ -3,7 +3,7 @@ import { FacilityService } from './facility.service';
 import sendResponse from '../../utils/sendResponse';
 import catchAsync from '../../utils/catchAsync';
 
-const getAllFacility: RequestHandler = catchAsync(async (req, res, next) => {
+const getAllFacility: RequestHandler = catchAsync(async (req, res) => {
   const result = await FacilityService.getAllFacilityFromDB();
 
   return sendResponse(res, {
@@ -16,7 +16,7 @@ const getAllFacility: RequestHandler = catchAsync(async (req, res, next) => {
   });
 });
 
-const createFacility: RequestHandler = catchAsync(async (req, res, next) => {
+const createFacility: RequestHandler = catchAsync(async (req, res) => {
   const data = req.body;
   const result = await FacilityService.createFacilityIntoDB(data);
 

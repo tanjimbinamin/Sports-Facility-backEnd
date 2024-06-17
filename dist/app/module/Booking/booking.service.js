@@ -27,7 +27,7 @@ const createBookingIntoDb = (data) => __awaiter(void 0, void 0, void 0, function
     }
     //check if facility deleted
     if (isFacilityExist.isDeleted) {
-        throw new AppError_1.default(http_status_1.default.NOT_FOUND, 'Facility deleted');
+        throw new AppError_1.default(http_status_1.default.NOT_FOUND, 'Facility is deleted');
     }
     //get already booked time slot
     const getAllBookingTimeForProvidedDate = yield booking_model_1.Booking.find({
@@ -39,7 +39,7 @@ const createBookingIntoDb = (data) => __awaiter(void 0, void 0, void 0, function
         startTime: data.startTime,
         endTime: data.endTime,
     })) {
-        throw new AppError_1.default(http_status_1.default.NOT_FOUND, 'Seleted Time Not Available');
+        throw new AppError_1.default(http_status_1.default.NOT_FOUND, 'Seleted Time is not available');
     }
     //calculate payable  ammount for booking
     const totalTime = (0, booking_utils_1.getTotalTimeInHour)(data.startTime, data.endTime);
@@ -80,7 +80,7 @@ const getAvailableTimeSlotsFromBooking = (givenDate) => __awaiter(void 0, void 0
         'startTime',
         'endTime',
     ]);
-    const availableTimeSlots = (0, booking_utils_1.findAvailableTimeSlotForBooking)(bookings);
+    const availableTimeSlots = (0, booking_utils_1.availableTimeSlot)(bookings);
     return availableTimeSlots;
 });
 exports.BookingService = {

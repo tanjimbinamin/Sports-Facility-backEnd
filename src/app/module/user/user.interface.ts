@@ -3,7 +3,7 @@ export interface TUser {
   email: string;
   password: string; // Must be hashed
   phone: string;
-  role: 'admin' | 'user';
+  role: TUserRole;
   address: string;
 }
 
