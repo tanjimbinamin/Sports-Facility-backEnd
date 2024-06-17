@@ -15,5 +15,4 @@ router.get('/', (0, auth_1.auth)('admin'), booking_controller_1.BookingControlle
 router.get('/user', (0, auth_1.auth)('user'), booking_controller_1.BookingController.getAllBookingByUser);
 router.delete('/:id', (0, auth_1.auth)('user'), booking_controller_1.BookingController.deleteBookingByUser);
 router.get('/', booking_controller_1.BookingController.getAvailableTimeSlots);
-router.get('/', booking_controller_1.BookingController.getAvailableTimeSlots);
 exports.BookingRouter = router;

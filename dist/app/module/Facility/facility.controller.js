@@ -16,7 +16,7 @@ exports.FacilityController = void 0;
 const facility_service_1 = require("./facility.service");
 const sendResponse_1 = __importDefault(require("../../utils/sendResponse"));
 const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
-const getAllFacility = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+const getAllFacility = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield facility_service_1.FacilityService.getAllFacilityFromDB();
     return (0, sendResponse_1.default)(res, {
         success: result.length ? true : false,
@@ -27,7 +27,7 @@ const getAllFacility = (0, catchAsync_1.default)((req, res, next) => __awaiter(v
         data: result,
     });
 }));
-const createFacility = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+const createFacility = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = req.body;
     const result = yield facility_service_1.FacilityService.createFacilityIntoDB(data);
     return (0, sendResponse_1.default)(res, {
