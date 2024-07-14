@@ -49,7 +49,7 @@ const userLogin = async (info: TUserLogin) => {
   );
 
   return {
-    accessToken: `Bearer ${accessToken}`,
+    accessToken: accessToken,
     user: {
       _id: user._id,
       name: user.name,
